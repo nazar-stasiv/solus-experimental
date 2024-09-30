@@ -1,0 +1,116 @@
+name       : kodi
+version    : '21.1'
+release    : 104
+source     :
+    - https://github.com/xbmc/xbmc/archive/refs/tags/21.1-Omega.tar.gz : ad6e40b0912c8318635f0501dc1f7f27ce3a29e671f2ddb608cad34babae80ef
+license    : GPL-2.0-or-later
+component  : desktop.multimedia
+homepage   : https://kodi.tv
+summary    : Free and open source software media center
+description: |
+    Kodi® (formerly known as XBMC™) is an award-winning free and open source (GPL) software media center for playing videos, music, pictures, games, and more. The Solus Kodi build includes essential binary add-ons and select libretro cores.
+clang      : yes
+networking : yes
+optimize   : speed
+builddeps  :
+    - pkgconfig(fstrcmp)
+    - pkgconfig(gbm)
+    - pkgconfig(glu)
+    - pkgconfig(lcms2)
+    - pkgconfig(libass)
+    - pkgconfig(libbluray)
+    - pkgconfig(libcap)
+    - pkgconfig(libcdio)
+    - pkgconfig(libcurl)
+    - pkgconfig(libjpeg)
+    - pkgconfig(liblzma)
+    - pkgconfig(libmodplug)
+    - pkgconfig(libpcrecpp)
+    - pkgconfig(libpulse)
+    - pkgconfig(libraw)
+    - pkgconfig(libssh)
+    - pkgconfig(libva)
+    - pkgconfig(lirc)
+    - pkgconfig(python3)
+    - pkgconfig(sqlite3)
+    - pkgconfig(tinyxml)
+    - pkgconfig(tinyxml2)
+    - pkgconfig(vdpau)
+    - pkgconfig(xrandr)
+    - giflib-devel
+    - git
+    - gperf
+    - libunistring-devel
+    - llvm-clang
+    - lzo-devel
+    - openjdk-17-devel
+    - sndio-devel
+    - swig
+rundeps    :
+    - libmodplug
+    - libva-intel-driver
+environment: |
+    PATH="$PATH:/usr/lib64/openjdk-17/bin/"
+    LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$workdir/kodi-build/build/lib"
+setup      : |
+    # INFO https://github.com/xbmc/xbmc/blob/master/docs/README.Linux.md#31-build-missing-dependencies
+    %make -C tools/depends/target/flatbuffers PREFIX="$workdir/kodi-build/build"
+    %make -C tools/depends/target/crossguid PREFIX="$workdir/kodi-build/build"
+    %make -C tools/depends/target/fmt PREFIX="$workdir/kodi-build/build"
+    %make -C tools/depends/target/spdlog PREFIX="$workdir/kodi-build/build"
+    %make -C tools/depends/target/rapidjson PREFIX="$workdir/kodi-build/build"
+    %make -C tools/depends/target/dav1d PREFIX="$workdir/kodi-build/build"
+    # configure
+    mkdir -p kodi-build && cd kodi-build
+    %cmake .. \
+      -DAPP_RENDER_SYSTEM=gl \
+      -DBUILD_SHARED_LIBS=OFF \
+      -DCORE_PLATFORM_NAME=x11 \
+      -DENABLE_AIRTUNES=OFF \
+      -DENABLE_AVAHI=OFF \
+      -DENABLE_BLUETOOTH=OFF \
+      -DENABLE_CEC=OFF \
+      -DENABLE_GOLD=OFF \
+      -DENABLE_EVENTCLIENTS=OFF \
+      -DENABLE_INTERNAL_RAPIDJSON=ON \
+      -DENABLE_INTERNAL_CROSSGUID=OFF \
+      -DENABLE_INTERNAL_FFMPEG=ON \
+      -DENABLE_INTERNAL_FLATBUFFERS=OFF \
+      -DENABLE_INTERNAL_FMT=OFF \
+      -DENABLE_INTERNAL_FSTRCMP=OFF \
+      -DENABLE_INTERNAL_SPDLOG=OFF \
+      -DENABLE_INTERNAL_GTEST=ON \
+      -DENABLE_INTERNAL_LIBMICROHTTPD=ON \
+      -DENABLE_INTERNAL_LIBNFS=ON \
+      -DENABLE_INTERNAL_LIBPLIST=ON \
+      -DENABLE_INTERNAL_LIBUSB=ON \
+      -DENABLE_INTERNAL_LIBXSLT=ON \
+      -DENABLE_INTERNAL_LIBZIP=ON \
+      -DENABLE_INTERNAL_DBUS=ON \
+      -DENABLE_INTERNAL_ALSA-LIB=ON \
+      -DENABLE_INTERNAL_SAMBA=ON \
+      -DENABLE_INTERNAL_LIBDRM=ON \
+      -DENABLE_INTERNAL_DAV1D=OFF \
+      -DENABLE_INTERNAL_LIBDVDCSS=ON \
+      -DENABLE_INTERNAL_LIBDVDNAV=ON \
+      -DENABLE_INTERNAL_LIBDVDREAD=ON \
+      -DENABLE_INTERNAL_TAGLIB=ON \
+      -DENABLE_INTERNAL_UDFREAD=ON \
+      -DENABLE_INTERNAL_LIBSHAIRPLAY=ON \
+      -DENABLE_MARIADBCLIENT=OFF \
+      -DENABLE_MYSQLCLIENT=OFF \
+      -DENABLE_OPTICAL=OFF \
+      -DENABLE_SMBCLIENT=OFF \
+      -DENABLE_UPNP=OFF \
+      -DLIRC_DEVICE=/run/lirc/lircd \
+      -DMARIADBCLIENT_INCLUDE_DIR=/usr/include/mysql \
+      -DUSE_SHARED_LIB=OFF \
+      -DENABLE_LLD=ON
+build      : |
+    %make -C kodi-build
+install    : |
+    %make_install -C kodi-build
+    # INFO: https://github.com/xbmc/xbmc/blob/master/docs/README.Linux.md#51-in-tree-building-of-binary-add-ons
+    %make -C tools/depends/target/binary-addons PREFIX="$installdir/usr"
+check      : |
+    # %make check -C kodi-build
