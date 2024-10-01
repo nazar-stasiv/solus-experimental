@@ -37,3 +37,9 @@ ducktape  retroarch  launchers.  Libretro  cores  are  available  from
 browse  the repository  and install  libretro cores  specific to  your
 emulation needs.  Kodi ten foot UI works best with a gamepad, and with
 Retroplayer emulation is as easy as playing media file.
+
+** pandoc3
+
+Convert markup text  into other formats, see =man  pandoc3= for details.
+Build with =make pandoc3=, path to =file= gets printed to the screen. Then
+install with =eopkg install path-to-eopkg-file=.
