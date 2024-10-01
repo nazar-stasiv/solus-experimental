@@ -1,0 +1,17 @@
+name       : janet
+version    : 1.33.0
+release    : 2
+source     :
+    - https://github.com/janet-lang/janet/archive/refs/tags/v1.33.0.tar.gz : c9018fbd69b825cfc706d8c40e9464be37e924ce07089933e92f4f931ccf0d8d
+license    : MIT
+component  : programming
+summary    : A dynamic language and bytecode vm
+description: |
+    Janet is a programming language for system scripting, expressive automation, and extending programs written in C or C++ with user scripting capabilities
+setup      : |
+    %meson_configure
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
+    #install -Dm00644 solusBuildDir/libjanet.a $installdir/usr/lib/libjanet.a
