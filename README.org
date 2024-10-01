@@ -25,7 +25,7 @@ Now you can build experimental packages
 [[https://janet-lang.org][Janet]] is  an embeddable and prototyping  language. It has a  rich core
 library, a  REPL, a compiler, and  a =jpm= build tool,  for more details
 see  =man   janet=  and  =man  jpm=   .   Build  with  =make   janet=,  when
-=path-to-eopkg-=file=  gets printed  to  the screen,  install with  =eopkg
+=path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
 install path-to-eopkg-file=.
 
 ** kodi
