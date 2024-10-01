@@ -43,13 +43,13 @@ target/packages/p/pdf2djvu/pdf2djvu-0.9.19-9-1-x86_64.eopkg: target/Taskfile.yml
 pdf2djvu: target/packages/p/pdf2djvu/pdf2djvu-0.9.19-9-1-x86_64.eopkg ## build pdf2djvu, print path to new eopkg file
 > echo "${CURDIR}/target/packages/p/pdf2djvu/pdf2djvu-0.9.19-9-1-x86_64.eopkg"
 
-target/packages/j/janet/janet-1.33.0-2-1-x86_64.eopkg: target/Taskfile.yml
+target/packages/j/janet/janet-1.36.0-3-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/j/janet
 > cp -f src/janet.yml target/packages/j/janet/package.yml
 > (cd target/packages/j/janet && go-task)
 
-janet: target/packages/j/janet/janet-1.33.0-2-1-x86_64.eopkg ## build janet, print path to new eopkg file
-> echo "${CURDIR}/target/packages/j/janet/janet-1.33.0-2-1-x86_64.eopkg"
+janet: target/packages/j/janet/janet-1.36.0-3-1-x86_64.eopkg ## build janet, print path to new eopkg file
+> echo "${CURDIR}/target/packages/j/janet/janet-1.36.0-3-1-x86_64.eopkg"
 
 
 clean: ## clean up

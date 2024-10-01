@@ -1,17 +1,25 @@
 name       : janet
-version    : 1.33.0
-release    : 2
+version    : 1.36.0
+release    : 3
 source     :
-    - https://github.com/janet-lang/janet/archive/refs/tags/v1.33.0.tar.gz : c9018fbd69b825cfc706d8c40e9464be37e924ce07089933e92f4f931ccf0d8d
+    - https://github.com/janet-lang/janet/archive/refs/tags/v1.36.0.tar.gz : 104aa500d4a43c2c147851823fd8b7cd06a90d01efcdff71529ff1fa68953bb4
+    - https://github.com/janet-lang/jpm/archive/refs/tags/v1.1.0.tar.gz : 337c40d9b8c087b920202287b375c2962447218e8e127ce3a5a12e6e47ac6f16
 license    : MIT
 component  : programming
 summary    : A dynamic language and bytecode vm
 description: |
     Janet is a programming language for system scripting, expressive automation, and extending programs written in C or C++ with user scripting capabilities
+environment: |
+    export JANET=$installdir/usr/bin/janet
+    export LD_LIBRARY_PATH=$installdir/usr/lib64:${LD_LIBRARY_PATH}
 setup      : |
+    tar xf $sources/v1.1.0.tar.gz -C $workdir
     %meson_configure
 build      : |
     %ninja_build
 install    : |
     %ninja_install
-    #install -Dm00644 solusBuildDir/libjanet.a $installdir/usr/lib/libjanet.a
+    # install -Dm00644 solusBuildDir/libjanet.a $installdir/usr/lib/libjanet.a
+    pushd $workdir/jpm-1.1.0
+        LD_LIBRARY_PATH="$LD_LIBRARY_PATH" PREFIX=/usr DESTDIR=$installdir $JANET bootstrap.janet
+    popd
