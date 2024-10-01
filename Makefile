@@ -35,6 +35,14 @@ target/packages/p/pandoc3/pandoc3-3.4-2-1-x86_64.eopkg: target/Taskfile.yml
 pandoc3: target/packages/p/pandoc3/pandoc3-3.4-2-1-x86_64.eopkg ## build pandoc3, print path to new eopkg file
 > echo "${CURDIR}/target/packages/p/pandoc3/pandoc3-3.4-2-1-x86_64.eopkg"
 
+target/packages/p/pdf2djvu/pdf2djvu-0.9.19-9-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/p/pdf2djvu
+> cp -f src/pdf2djvu.yml target/packages/p/pdf2djvu/package.yml
+> (cd target/packages/p/pdf2djvu && go-task)
+
+pdf2djvu: target/packages/p/pdf2djvu/pdf2djvu-0.9.19-9-1-x86_64.eopkg ## build pdf2djvu, print path to new eopkg file
+> echo "${CURDIR}/target/packages/p/pdf2djvu/pdf2djvu-0.9.19-9-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target
 
