@@ -1,0 +1,13 @@
+name       : pandoc3
+version    : 3.1.5
+release    : 1
+source     :
+    - https://github.com/jgm/pandoc/releases/download/3.1.5/pandoc-3.1.5-linux-amd64.tar.gz : 2767805985800000a597baf7d80b6bbd4382a7549a850e3ee806e99fe85616a7
+license    : GPL-2.0-or-later
+component  : office
+summary    : Universal markup converter
+description: |
+    Pandoc is a Haskell library for converting from one markup format to another, and a command-line tool that uses this library.
+install    : |
+    install -Dm00755 $workdir/bin/pandoc $installdir/usr/bin/pandoc3
+    install -Dm00644 $workdir/share/man/man1/pandoc.1.gz $installdir/usr/share/man/man1/pandoc3.1.gz

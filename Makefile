@@ -13,25 +13,28 @@ endif
 help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-.DEFAULT_GOAL := target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg
-.PHONY: install clean once
+.DEFAULT_GOAL := help
+.PHONY: clean kodi pandoc3
 
-target/Taskfile.yml: ## set up local packaging environment
-> mkdir -p target
+target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
 
-target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg: target/Taskfile.yml ## build eopkg
+target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/k/kodi
-> cp kodi.yml target/packages/k/kodi/package.yml
+> cp -f src/kodi.yml target/packages/k/kodi/package.yml
 > (cd target/packages/k/kodi && go-task)
 
-install: target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg ## install eopkg, requires sudo
-> sudo eopkg install -y target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg
+kodi: target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg ## build kodi, print path to new eopkg file
+> echo "${CURDIR}/target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg"
+
+target/packages/p/pandoc3/pandoc3-3.1.5-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/p/pandoc3
+> cp -f src/pandoc3.yml target/packages/p/pandoc3/package.yml
+> (cd target/packages/p/pandoc3 && go-task)
+
+pandoc3: target/packages/p/pandoc3/pandoc3-3.1.5-1-1-x86_64.eopkg ## build pandoc3, print path to new eopkg file
+> echo "${CURDIR}/target/packages/p/pandoc3/pandoc3-3.1.5-1-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target
 
-once: ## init chroot, requires sudo
-> sudo eopkg install -y go-task ypkg git solbuild-config-unstable solbuild make
-> sudo solbuild init -p unstable-x86_64
-> sudo solbuild update -p unstable-x86_64

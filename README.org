@@ -7,8 +7,8 @@
 * Chroot
 
 Official Solus  packaging guide  available from  [[https://getsol.us]]. It
-boils down to a few commands that init chroot environment, run once in
-terminal with sudo
+boils down to  a few commands that initialize  chroot environment. Run
+once in terminal, with sudo
 
 #+begin_src sh
 eopkg install -y go-task ypkg git solbuild-config-unstable solbuild make 
@@ -16,21 +16,24 @@ solbuild init -p unstable-x86_64
 solbuild update -p unstable-x86_64
 #+end_src
 
-Now you can build experimental package. Try it yourself, like below
+Now you can build experimental packages
 
-* Kodi
+* Packages
+** kodi
 
-Run =make=  and =make  install= to  build and install  kodi on  your Solus
-system. Point kodi to your library to have media played on your living
-room PC.   To stream videos with  kodi you'll need google  account and
-youtube addon from  kodi official repository. 
+Packaging  kodi takes  30 to  60 minutes  and 10G  of free  space.  In
+project directory run =make kodi= - after a while the command will write
+to the screen path to new eopkg =file=.  Install it on your Solus system
+with =eopkg install <file>=.  Now you can  run =kodi= and point it to your
+library to get media played on  your living room PC.  To stream videos
+with  kodi you'll  need google  account  and youtube  addon from  kodi
+official repository.
 
-kodi  v19 introduced  Retroplayer -  an integrated  libretro frontend.
-Libretro cores  are available  from =libretro buildbot=.   First install
-unofficial [[https://github.com/zach-morris/kodi_libretro_buildbot_game_addons][repository]]  addon, then  browse the repository  and install
-libretro cores  specific to your  emulation needs. When  compared with
-Retroarch,  Retroplayer UI  is  simplistic, but  it makes  retrogaming
-instantly available  without having  to ducktape  retroarch launchers.
-
-Kodi ten foot UI works best with a gamepad.
-
+Kodi   v19   introduced   Retroplayer   -   an   integrated   libretro
+frontend. When compared with  Retroarch, Retroplayer UI is simplistic,
+but  it  makes  retrogaming  instantly  available  without  having  to
+ducktape  retroarch  launchers.  Libretro  cores  are  available  from
+=libretro buildbot=.   First install  unofficial [[https://github.com/zach-morris/kodi_libretro_buildbot_game_addons][repository]]  addon, then
+browse  the repository  and install  libretro cores  specific to  your
+emulation needs.  Kodi ten foot UI works best with a gamepad, and with
+Retroplayer emulation is as easy as playing media file.
