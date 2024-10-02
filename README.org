@@ -20,6 +20,12 @@ Now you can build experimental packages
 
 * Packages
 
+** antiword
+
+Convert  Microsoft Word  files to  plain  text, see  =man antiword=  for
+details.   Build  with  =make antiword=,  when  =path-to-eopkg-file=  gets
+printed to the screen, install with =eopkg install path-to-eopkg-file=.
+
 ** janet
 
 [[https://janet-lang.org][Janet]] is  an embeddable and prototyping  language. It has a  rich core

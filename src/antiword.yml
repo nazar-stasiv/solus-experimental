@@ -1,0 +1,17 @@
+name       : antiword
+version    : 0.37
+release    : 1
+source     :
+    - https://web.archive.org/web/20221207132720/http://www.winfield.demon.nl/linux/antiword-0.37.tar.gz : 8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac
+license    : GPL-2.0-or-later
+component  : office.viewers
+summary    : Antiword converts the binary files from Word 2, 6, 7, 97, 2000, 2002 and 2003 to plain text and to PostScript
+description: |
+    Antiword converts the binary files from Word 2, 6, 7, 97, 2000, 2002 and 2003 to plain text and to PostScript
+setup      : |
+    sed -i 's#/usr/local/bin#/usr/bin#g' Makefile.Linux
+build      : |
+    %make
+install    : |
+    make global_install DESTDIR=$installdir
+    install -Dm00644 $workdir/Docs/antiword.1 $installdir/usr/share/man/man1/antiword.1

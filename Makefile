@@ -51,6 +51,13 @@ target/packages/j/janet/janet-1.36.0-3-1-x86_64.eopkg: target/Taskfile.yml
 janet: target/packages/j/janet/janet-1.36.0-3-1-x86_64.eopkg ## build janet, print path to new eopkg file
 > echo "${CURDIR}/target/packages/j/janet/janet-1.36.0-3-1-x86_64.eopkg"
 
+target/packages/a/antiword/antiword-0.37-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/a/antiword
+> cp -f src/antiword.yml target/packages/a/antiword/package.yml
+> (cd target/packages/a/antiword && go-task)
+
+antiword: target/packages/a/antiword/antiword-0.37-1-1-x86_64.eopkg ## build antiword, print path to new eopkg file
+> echo "${CURDIR}/target/packages/a/antiword/antiword-0.37-1-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target
