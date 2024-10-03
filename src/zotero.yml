@@ -1,0 +1,28 @@
+name       : zotero
+version    : 7.0.7
+release    : 20
+source     :
+    - https://download.zotero.org/client/release/7.0.7/Zotero-7.0.7_linux-x86_64.tar.bz2 : 1112fecca8cd3b3fa3fd0e5dc935d57332e7c1a4e5fd2ce049a295900f6ec89e
+homepage   : https://www.zotero.org/
+license    : AGPL-3.0-or-later
+component  : office.scientific
+summary    : Free, easy-to-use tool to help you collect, organize, cite, and share your research sources
+description: |
+    Free, easy-to-use tool to help you collect, organize, cite, and share your research sources
+builddeps  :
+    - pkgconfig(alsa)
+    - pkgconfig(dbus-1)
+    - pkgconfig(gtk+-2.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(xt)
+install    : |
+    install -dDm00755 $installdir/usr/{bin,lib/zotero}
+    mv $workdir/* $installdir/usr/lib/zotero
+    ln -s /usr/lib/zotero/zotero $installdir/usr/bin/zotero
+    sed -i 's/zotero.ico/zotero/g' $installdir/usr/lib/zotero/zotero.desktop
+    sed -i 's/Exec=.*/Exec=zotero/g' $installdir/usr/lib/zotero/zotero.desktop
+    install -Dm644 $installdir/usr/lib/zotero/zotero.desktop $installdir/usr/share/applications/zotero.desktop
+    install -Dm644 $installdir/usr/lib/zotero/icons/icon128.png $installdir/usr/share/icons/hicolor/128x128/apps/zotero.png
+    install -Dm644 $installdir/usr/lib/zotero/icons/icon32.png $installdir/usr/share/icons/hicolor/32x32/apps/zotero.png
+    install -Dm644 $installdir/usr/lib/zotero/icons/icon64.png $installdir/usr/share/icons/hicolor/64x64/apps/zotero.png
+

@@ -59,6 +59,14 @@ target/packages/a/antiword/antiword-0.37-1-1-x86_64.eopkg: target/Taskfile.yml
 antiword: target/packages/a/antiword/antiword-0.37-1-1-x86_64.eopkg ## build antiword, print path to new eopkg file
 > echo "${CURDIR}/target/packages/a/antiword/antiword-0.37-1-1-x86_64.eopkg"
 
+target/packages/z/zotero/zotero-7.0.7-20-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/z/zotero
+> cp -f src/zotero.yml target/packages/z/zotero/package.yml
+> (cd target/packages/z/zotero && go-task)
+
+zotero: target/packages/z/zotero/zotero-7.0.7-20-1-x86_64.eopkg ## build zotero, print path to new eopkg file
+> echo "${CURDIR}/target/packages/z/zotero/zotero-7.0.7-20-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target
 
