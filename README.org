@@ -67,6 +67,6 @@ screen, install with =eopkg install path-to-eopkg-file=.
 
 ** zotero
 
-Bibliography manager  for all your  citations needs.  Build  with =make
-zotero=, when  =path-to-eopkg-file= gets  printed to the  screen, install
-with =eopkg install path-to-eopkg-file=.
+Bibliography manager.  Build with =make zotero=, when =path-to-eopkg-file=
+gets   printed   to   the   screen,   install   with   =eopkg   install
+path-to-eopkg-file=.

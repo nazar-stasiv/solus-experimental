@@ -12,17 +12,19 @@ description: |
 builddeps  :
     - pkgconfig(alsa)
     - pkgconfig(dbus-1)
+    - pkgconfig(glib-2.0)
     - pkgconfig(gtk+-2.0)
     - pkgconfig(gtk+-3.0)
     - pkgconfig(xt)
 install    : |
-    install -dDm00755 $installdir/usr/{bin,lib/zotero}
+    install -dDm00755 $installdir/usr/lib/zotero
     mv $workdir/* $installdir/usr/lib/zotero
+    install -dDm00755 $installdir/usr/bin
     ln -s /usr/lib/zotero/zotero $installdir/usr/bin/zotero
     sed -i 's/zotero.ico/zotero/g' $installdir/usr/lib/zotero/zotero.desktop
     sed -i 's/Exec=.*/Exec=zotero/g' $installdir/usr/lib/zotero/zotero.desktop
-    install -Dm644 $installdir/usr/lib/zotero/zotero.desktop $installdir/usr/share/applications/zotero.desktop
-    install -Dm644 $installdir/usr/lib/zotero/icons/icon128.png $installdir/usr/share/icons/hicolor/128x128/apps/zotero.png
-    install -Dm644 $installdir/usr/lib/zotero/icons/icon32.png $installdir/usr/share/icons/hicolor/32x32/apps/zotero.png
-    install -Dm644 $installdir/usr/lib/zotero/icons/icon64.png $installdir/usr/share/icons/hicolor/64x64/apps/zotero.png
-
+    install -Dm00644 $installdir/usr/lib/zotero/zotero.desktop $installdir/usr/share/applications/zotero.desktop
+    install -Dm00644 $installdir/usr/lib/zotero/icons/icon128.png $installdir/usr/share/icons/hicolor/128x128/apps/zotero.png
+    install -Dm00644 $installdir/usr/lib/zotero/icons/icon32.png $installdir/usr/share/icons/hicolor/32x32/apps/zotero.png
+    install -Dm00644 $installdir/usr/lib/zotero/icons/icon64.png $installdir/usr/share/icons/hicolor/64x64/apps/zotero.png
+    # install -Dm00644 $pkgfiles/org.zotero.Zotero.appdata.xml $installdir/usr/share/metainfo/org.zotero.Zotero.appdata.xml
