@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -66,6 +66,14 @@ target/packages/z/zotero/zotero-7.0.7-20-1-x86_64.eopkg: target/Taskfile.yml
 
 zotero: target/packages/z/zotero/zotero-7.0.7-20-1-x86_64.eopkg ## build zotero, print path to new eopkg file
 > echo "${CURDIR}/target/packages/z/zotero/zotero-7.0.7-20-1-x86_64.eopkg"
+
+target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/d/ditaa
+> cp -f src/ditaa.yml target/packages/d/ditaa/package.yml
+> (cd target/packages/d/ditaa && go-task)
+
+ditaa: target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg ## package ditaa, print path to new eopkg file
+> echo "${CURDIR}/target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target
