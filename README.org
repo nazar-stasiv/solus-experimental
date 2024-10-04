@@ -32,6 +32,12 @@ An ASCII diagramming tool, for more details see [[https://ditaa.sourceforge.net]
 =make  ditaa=,  when  =path-to-eopkg-file=  gets printed  to  the  screen,
 install with =eopkg install path-to-eopkg-file=.
 
+** firestarter
+
+A CPU  stress test utility,  for more details see  =FIRESTARTER --help=.
+Build with  =make firestarter=, when =path-to-eopkg-file=  gets printed to
+the screen, install with =eopkg install path-to-eopkg-file=.
+
 ** janet
 
 [[https://janet-lang.org][Janet]] is  an embeddable and prototyping  language. It has a  rich core

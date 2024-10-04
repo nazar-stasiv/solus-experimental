@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -74,6 +74,14 @@ target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg: target/Taskfile.yml
 
 ditaa: target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg ## package ditaa, print path to new eopkg file
 > echo "${CURDIR}/target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg"
+
+target/packages/f/firestarter/firestarter-2.0-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/f/firestarter
+> cp -f src/firestarter.yml target/packages/f/firestarter/package.yml
+> (cd target/packages/f/firestarter && go-task)
+
+firestarter: target/packages/f/firestarter/firestarter-2.0-1-1-x86_64.eopkg ## build firestarter, print path to new eopkg file
+> echo "${CURDIR}/target/packages/f/firestarter/firestarter-2.0-1-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

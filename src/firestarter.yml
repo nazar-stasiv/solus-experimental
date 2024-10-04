@@ -1,0 +1,21 @@
+name       : firestarter
+version    : 2.0
+release    : 1
+source     :
+    - git|https://github.com/tud-zih-energy/FIRESTARTER.git : v2.0
+license    : GPL-3.0-only
+component  : programming.tools
+summary    : A Processor Stress Test Utility.
+description: |
+    A Processor Stress Test Utility.
+networking : yes
+builddeps  :
+    - git
+rundeps    :
+    - hwloc
+setup      : |
+    %cmake
+build      : |
+    %make
+install    : |
+    install -D -m 00755 src/FIRESTARTER $installdir/usr/bin/FIRESTARTER
