@@ -91,6 +91,14 @@ target/packages/g/gmaptool/gmaptool-0.9.73-1-1-x86_64.eopkg: target/Taskfile.yml
 gmaptool: target/packages/g/gmaptool/gmaptool-0.9.73-1-1-x86_64.eopkg ## package gmt, print path to new eopkg file
 > echo "${CURDIR}/target/packages/g/gmaptool/gmaptool-0.9.73-1-1-x86_64.eopkg"
 
+target/packages/t/tmx2lua/tmx2lua-1.0.0-2-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/t/tmx2lua
+> cp -f src/tmx2lua.yml target/packages/t/tmx2lua/package.yml
+> (cd target/packages/t/tmx2lua && go-task)
+
+tmx2lua: target/packages/t/tmx2lua/tmx2lua-1.0.0-2-1-x86_64.eopkg ## package tmx2lua, print path to new eopkg file
+> echo "${CURDIR}/target/packages/t/tmx2lua/tmx2lua-1.0.0-2-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target
 

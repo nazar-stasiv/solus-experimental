@@ -1,0 +1,12 @@
+name       : tmx2lua
+version    : 1.0.0
+release    : 2
+source     :
+    - https://github.com/hawkthorne/tmx2lua/releases/download/v1.0.0/tmx2lua.linux64.tar.gz : 9817cd8146dd5a52a8f666ca70849665d7d01ad73f90f05dae3be8396bd46f21
+license    : GPL-2.0-or-later
+component  : programming.tools
+summary    : Convert TMX files into Lua scripts
+description: |
+    Convert TMX files into Lua scripts
+install    : |
+    install -Dm00755 tmx2lua $installdir/usr/bin/tmx2lua
