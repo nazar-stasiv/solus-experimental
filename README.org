@@ -115,6 +115,13 @@ Convert  =tiled= maps  into Lua  data, see  =tmx2lua --help=  for details.
 Build with =make  tmx2lua=, when =path-to-eopkg-file= gets  printed to the
 screen, install with =eopkg install path-to-eopkg-file=.
 
+** visidata
+
+A terminal  spreadsheet multitool for discovering  and arranging data,
+see   =man   vd=  for   details.    Build   with  =make   visidata=   when
+=path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
+install path-to-eopkg-file=.
+
 ** ziglang
 
 General-purpose  programming language  and  toolchain for  maintaining
