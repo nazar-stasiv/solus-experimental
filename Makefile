@@ -83,6 +83,14 @@ target/packages/f/firestarter/firestarter-2.0-1-1-x86_64.eopkg: target/Taskfile.
 firestarter: target/packages/f/firestarter/firestarter-2.0-1-1-x86_64.eopkg ## build firestarter, print path to new eopkg file
 > echo "${CURDIR}/target/packages/f/firestarter/firestarter-2.0-1-1-x86_64.eopkg"
 
+target/packages/g/gmaptool/gmaptool-0.9.73-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/g/gmaptool
+> cp -f src/gmaptool.yml target/packages/g/gmaptool/package.yml
+> (cd target/packages/g/gmaptool && go-task)
+
+gmaptool: target/packages/g/gmaptool/gmaptool-0.9.73-1-1-x86_64.eopkg ## package gmt, print path to new eopkg file
+> echo "${CURDIR}/target/packages/g/gmaptool/gmaptool-0.9.73-1-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target
 

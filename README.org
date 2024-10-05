@@ -38,6 +38,13 @@ A CPU  stress test utility,  for more details see  =FIRESTARTER --help=.
 Build with  =make firestarter=, when =path-to-eopkg-file=  gets printed to
 the screen, install with =eopkg install path-to-eopkg-file=.
 
+** gmaptool
+
+A program  for splitting and merging  maps in Garmin format,  for more
+details   see   [[https://www.gmaptool.eu/en/content/gmaptool][home   page]].    Build   with   =make   gmaptool=,   when
+=path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
+install path-to-eopkg-file=.
+
 ** janet
 
 [[https://janet-lang.org][Janet]] is  an embeddable and prototyping  language. It has a  rich core

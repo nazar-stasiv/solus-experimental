@@ -1,0 +1,12 @@
+name       : gmaptool
+version    : 0.9.73
+release    : 1
+source     :
+    - https://www.gmaptool.eu/sites/default/files/lgmt08220.zip : 1bfb6cf8e3c13f841000fa025084c9c3d6f7a468a4a0d68753f01f8ab2069660
+license    : CC-BY-SA-3.0
+component  : office.viewers
+summary    : program for splitting and merging maps in Garmin format.
+description: |
+    GMapTool - program for splitting and merging maps in Garmin format.
+install    : |
+    install -Dm00755 $workdir/gmt $installdir/usr/bin/gmt
