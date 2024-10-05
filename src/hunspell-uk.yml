@@ -1,0 +1,16 @@
+name       : hunspell-uk
+version    : 6.5.3
+release    : 11
+source     :
+    - https://github.com/brown-uk/dict_uk/releases/download/v6.5.3/hunspell-uk_UA_6.5.3.zip : f8ee99ebbe9c8b6af46532460798d2de43b31ed2695bfff83907240399cfdc76
+homepage   : https://github.com/brown-uk/dict_uk/
+license    :
+    - GPL-2.0-or-later
+    - LGPL-2.1-or-later
+    - MPL-1.1
+component  : office.spelling
+summary    : Ukrainian hunspell dictionary
+description: |
+    Ukrainian spelling dictionary for hunspell.
+install    : |
+    install -Dm00644 uk_UA.{aff,dic} -t $installdir/usr/share/hunspell

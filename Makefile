@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -98,6 +98,14 @@ target/packages/t/tmx2lua/tmx2lua-1.0.0-2-1-x86_64.eopkg: target/Taskfile.yml
 
 tmx2lua: target/packages/t/tmx2lua/tmx2lua-1.0.0-2-1-x86_64.eopkg ## package tmx2lua, print path to new eopkg file
 > echo "${CURDIR}/target/packages/t/tmx2lua/tmx2lua-1.0.0-2-1-x86_64.eopkg"
+
+target/packages/h/hunspell-uk/hunspell-uk-6.5.3-11-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/h/hunspell-uk
+> cp -f src/hunspell-uk.yml target/packages/h/hunspell-uk/package.yml
+> (cd target/packages/h/hunspell-uk && go-task)
+
+hunspell-uk: target/packages/h/hunspell-uk/hunspell-uk-6.5.3-11-1-x86_64.eopkg ## package hunspell-uk, print path to new eopkg file
+> echo "${CURDIR}/target/packages/h/hunspell-uk/hunspell-uk-6.5.3-11-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

@@ -45,6 +45,12 @@ details   see   [[https://www.gmaptool.eu/en/content/gmaptool][home   page]].   
 =path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
 install path-to-eopkg-file=.
 
+** hunspell-uk
+
+Hunspell dictionary for Ukrainian, for  more details see =man hunspell=.
+Build with  =make hunspell-uk=, when =path-to-eopkg-file=  gets printed to
+the screen, install with =eopkg install path-to-eopkg-file=.
+
 ** janet
 
 [[https://janet-lang.org][Janet]] is  an embeddable and prototyping  language. It has a  rich core
