@@ -1,0 +1,21 @@
+name       : ziglang
+version    : 0.13.0
+release    : 11
+source     :
+    - https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz : d45312e61ebcc48032b77bc4cf7fd6915c11fa16e4aad116b66c9468211230ea
+homepage   : https://ziglang.org
+license    : MIT
+component  : programming
+summary    : General-purpose programming language and toolchain for maintaining robust, optimal, and reusable software.
+description: |
+    General-purpose programming language and toolchain for maintaining robust, optimal, and reusable software.
+install    : |
+    install -dDm00755 $installdir/usr/{bin,lib/zig}
+    mv $workdir/zig $installdir/usr/bin/
+    mv $workdir/lib/* $installdir/usr/lib/zig/
+check      : |
+    pushd `mktemp -d`
+        $installdir/usr/bin/zig init
+        $installdir/usr/bin/zig build run
+        $installdir/usr/bin/zig build test
+    popd

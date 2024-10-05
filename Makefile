@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -114,6 +114,14 @@ target/packages/l/luajit/luajit-2.1.1727619075-13-1-x86_64.eopkg: target/Taskfil
 
 luajit: target/packages/l/luajit/luajit-2.1.1727619075-13-1-x86_64.eopkg ## build juajit, print path to new eopkg file
 > echo "${CURDIR}/target/packages/l/luajit/luajit-2.1.1727619075-13-1-x86_64.eopkg"
+
+target/packages/z/ziglang/ziglang-0.13.0-11-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/z/ziglang
+> cp -f src/ziglang.yml target/packages/z/ziglang/package.yml
+> (cd target/packages/z/ziglang && go-task)
+
+ziglang: target/packages/z/ziglang/ziglang-0.13.0-11-1-x86_64.eopkg ## package zig, print path to new eopkg file
+> echo "${CURDIR}/target/packages/z/ziglang/ziglang-0.13.0-11-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

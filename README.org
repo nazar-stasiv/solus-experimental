@@ -103,6 +103,14 @@ Convert  =tiled= maps  into Lua  data, see  =tmx2lua --help=  for details.
 Build with =make  tmx2lua=, when =path-to-eopkg-file= gets  printed to the
 screen, install with =eopkg install path-to-eopkg-file=.
 
+** ziglang
+
+General-purpose  programming language  and  toolchain for  maintaining
+robust, optimal, and reusable software. See =zig -h= for details.  Build
+with =make ziglang=, when =path-to-eopkg-file= gets printed to the screen,
+install with =eopkg install path-to-eopkg-file=.
+
+
 ** zotero
 
 Bibliography manager.  Build with =make zotero=, when =path-to-eopkg-file=
