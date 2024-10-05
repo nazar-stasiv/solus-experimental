@@ -1,0 +1,15 @@
+name       : ttyplot
+version    : 1.7.0
+release    : 4
+source     :
+    - https://github.com/tenox7/ttyplot/archive/refs/tags/1.7.0.tar.gz : f16ca828bf73f56c05ed4e1797a23861aa7cf3a98fe3fcc8c992d8646906fe51
+homepage   : https://github.com/tenox7/ttyplot
+license    : Apache-2.0
+component  : system.utils
+summary    : realtime plotting utility for terminal/console with data input from stdin
+description: |
+    takes data from standard input / unix pipeline, most commonly some tool like ping, snmpget, netstat, ip link, ifconfig, sar, vmstat, etc. and plots in text mode on a terminal in real time
+build      : |
+    %make
+install    : |
+    %make_install PREFIX=/usr

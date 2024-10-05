@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -154,6 +154,14 @@ target/packages/s/sdcv/sdcv-0.5.5-8-1-x86_64.eopkg: target/Taskfile.yml
 
 sdcv: target/packages/s/sdcv/sdcv-0.5.5-8-1-x86_64.eopkg ## build sdcv, print path to new eopkg file
 > echo "${CURDIR}/target/packages/s/sdcv/sdcv-0.5.5-8-1-x86_64.eopkg"
+
+target/packages/t/ttyplot/ttyplot-1.7.0-4-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/t/ttyplot
+> cp -f src/ttyplot.yml target/packages/t/ttyplot/package.yml
+> (cd target/packages/t/ttyplot && go-task)
+
+ttyplot: target/packages/t/ttyplot/ttyplot-1.7.0-4-1-x86_64.eopkg ## build ttyplot, print path to new eopkg file
+> echo "${CURDIR}/target/packages/t/ttyplot/ttyplot-1.7.0-4-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

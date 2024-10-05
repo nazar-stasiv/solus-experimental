@@ -121,6 +121,13 @@ Convert  =tiled= maps  into Lua  data, see  =tmx2lua --help=  for details.
 Build with =make  tmx2lua=, when =path-to-eopkg-file= gets  printed to the
 screen, install with =eopkg install path-to-eopkg-file=.
 
+** ttyplot
+
+Realtime plotting  utility for  terminal/console with data  input from
+stdin, see  =man ttyplot=  for details.  Build  with =make  ttyplot=, when
+=path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
+install path-to-eopkg-file=.
+
 ** visidata
 
 A terminal  spreadsheet multitool for discovering  and arranging data,
