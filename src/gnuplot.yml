@@ -1,0 +1,22 @@
+name       : gnuplot
+version    : 6.0.1
+release    : 25
+source     :
+    - https://sourceforge.net/projects/gnuplot/files/gnuplot/6.0.1/gnuplot-6.0.1.tar.gz : e85a660c1a2a1808ff24f7e69981ffcbac66a45c9dcf711b65610b26ea71379a
+homepage   : http://www.gnuplot.info/
+license    : gnuplot
+component  : programming
+summary    : Gnuplot is a portable command-line driven graphing utility
+description: |
+    Gnuplot is a portable command-line driven graphing utility
+builddeps  :
+    - pkgconfig(cairo)
+    - pkgconfig(pangocairo)
+    - pkgconfig(x11)
+    - wxwidgets-devel
+setup      : |
+    %configure --with-readline=gnu --with-qt=no
+build      : |
+    %make
+install    : |
+    %make_install

@@ -45,6 +45,12 @@ details   see   [[https://www.gmaptool.eu/en/content/gmaptool][home   page]].   
 =path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
 install path-to-eopkg-file=.
 
+** gnuplot
+
+A portable command-line driven graphing  utility, for more details see
+=man gnuplot=.   Build with  =make gnuplot=, when  =path-to-eopkg-file= gets
+printed to the screen, install with =eopkg install path-to-eopkg-file=.
+
 ** hunspell-uk
 
 Hunspell dictionary for Ukrainian, for  more details see =man hunspell=.

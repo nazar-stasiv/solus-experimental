@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -131,6 +131,13 @@ target/packages/l/languagetool/languagetool-6.5-10-1-x86_64.eopkg: target/Taskfi
 languagetool: target/packages/l/languagetool/languagetool-6.5-10-1-x86_64.eopkg ## package langtool, print path to new eopkg file
 > echo "${CURDIR}/target/packages/l/languagetool/languagetool-6.5-10-1-x86_64.eopkg"
 
+target/packages/g/gnuplot/gnuplot-6.0.1-25-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/g/gnuplot
+> cp -f src/gnuplot.yml target/packages/g/gnuplot/package.yml
+> (cd target/packages/g/gnuplot && go-task)
+
+gnuplot: target/packages/g/gnuplot/gnuplot-6.0.1-25-1-x86_64.eopkg ## build gnuplot, print path to new eopkg file
+> echo "${CURDIR}/target/packages/g/gnuplot/gnuplot-6.0.1-25-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target
-
