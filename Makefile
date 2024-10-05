@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -122,6 +122,14 @@ target/packages/z/ziglang/ziglang-0.13.0-11-1-x86_64.eopkg: target/Taskfile.yml
 
 ziglang: target/packages/z/ziglang/ziglang-0.13.0-11-1-x86_64.eopkg ## package zig, print path to new eopkg file
 > echo "${CURDIR}/target/packages/z/ziglang/ziglang-0.13.0-11-1-x86_64.eopkg"
+
+target/packages/l/languagetool/languagetool-6.5-10-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/l/languagetool
+> cp -f src/languagetool.yml target/packages/l/languagetool/package.yml
+> (cd target/packages/l/languagetool && go-task)
+
+languagetool: target/packages/l/languagetool/languagetool-6.5-10-1-x86_64.eopkg ## package langtool, print path to new eopkg file
+> echo "${CURDIR}/target/packages/l/languagetool/languagetool-6.5-10-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target
