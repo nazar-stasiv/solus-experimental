@@ -163,5 +163,13 @@ target/packages/t/ttyplot/ttyplot-1.7.0-4-1-x86_64.eopkg: target/Taskfile.yml
 ttyplot: target/packages/t/ttyplot/ttyplot-1.7.0-4-1-x86_64.eopkg ## build ttyplot, print path to new eopkg file
 > echo "${CURDIR}/target/packages/t/ttyplot/ttyplot-1.7.0-4-1-x86_64.eopkg"
 
+target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/b/bandwhich
+> cp -f src/bandwhich.yml target/packages/b/bandwhich/package.yml
+> (cd target/packages/b/bandwhich && go-task)
+
+bandwhich: target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg ## build bandwhich, print path to new eopkg file
+> echo "${CURDIR}/target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target

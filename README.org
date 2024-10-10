@@ -26,6 +26,13 @@ Convert  Microsoft Word  files to  plain  text, see  =man antiword=  for
 details.   Build  with  =make antiword=,  when  =path-to-eopkg-file=  gets
 printed to the screen, install with =eopkg install path-to-eopkg-file=.
 
+** bandwhich
+
+A  utility  for displaying  current  network  utilization by  process,
+connection  and remote  IP/hostname.  See =man  bandwhich= for  details.
+Build with =make bandwhich=, when =path-to-eopkg-file= gets printed to the
+screen, install with =eopkg install path-to-eopkg-file=.
+
 ** ditaa
 
 An ASCII diagramming tool, for more details see [[https://ditaa.sourceforge.net][home page]].  Build with
