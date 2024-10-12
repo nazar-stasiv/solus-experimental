@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -170,6 +170,14 @@ target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg: target/Taskfile.y
 
 bandwhich: target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg ## build bandwhich, print path to new eopkg file
 > echo "${CURDIR}/target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg"
+
+target/packages/b/bb/bb-1.12.193-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/b/bb
+> cp -f src/bb.yml target/packages/b/bb/package.yml
+> (cd target/packages/b/bb && go-task)
+
+bb: target/packages/b/bb/bb-1.12.193-1-1-x86_64.eopkg ## build bb, print path to new eopkg file
+> echo "${CURDIR}/target/packages/b/bb/bb-1.12.193-1-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

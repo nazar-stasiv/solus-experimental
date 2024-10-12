@@ -1,0 +1,14 @@
+name       : bb
+version    : 1.12.193
+release    : 1
+source     :
+    - https://github.com/babashka/babashka/releases/download/v1.12.193/babashka-1.12.193-linux-amd64.tar.gz : a6c8f2fd36b721b1088c90269f0f43865f7e0ba721a0eda3965394b7ec92c160
+license    : EPL-1.0
+component  : programming
+summary    : Native, fast starting Clojure interpreter for scripting 
+description: |
+    Babashka is a native Clojure interpreter for scripting with fast startup. Its main goal is to leverage Clojure in places where you would be using bash otherwise.
+replaces   :
+    - babashka
+install    : |
+    install -Dm00755 $workdir/bb $installdir/usr/bin/bb
