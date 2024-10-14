@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -178,6 +178,14 @@ target/packages/b/bb/bb-1.12.193-1-1-x86_64.eopkg: target/Taskfile.yml
 
 bb: target/packages/b/bb/bb-1.12.193-1-1-x86_64.eopkg ## build bb, print path to new eopkg file
 > echo "${CURDIR}/target/packages/b/bb/bb-1.12.193-1-1-x86_64.eopkg"
+
+target/packages/g/gpxsee/gpxsee-13.26-46-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/g/gpxsee
+> cp -f src/gpxsee.yml target/packages/g/gpxsee/package.yml
+> (cd target/packages/g/gpxsee && go-task)
+
+gpxsee: target/packages/g/gpxsee/gpxsee-13.26-46-1-x86_64.eopkg ## build gpxsee, print path to new eopkg file
+> echo "${CURDIR}/target/packages/g/gpxsee/gpxsee-13.26-46-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

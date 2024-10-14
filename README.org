@@ -64,6 +64,12 @@ A portable command-line driven graphing  utility, for more details see
 =man gnuplot=.   Build with  =make gnuplot=, when  =path-to-eopkg-file= gets
 printed to the screen, install with =eopkg install path-to-eopkg-file=.
 
+** gpxsee
+
+GPS log file viewer and analyzer that supports all common GPS log file
+formats.  Build with =make gpxsee=, when =path-to-eopkg-file= gets printed
+to the screen, install with =eopkg install path-to-eopkg-file=.
+
 ** hunspell-uk
 
 Hunspell dictionary for Ukrainian, for  more details see =man hunspell=.

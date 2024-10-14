@@ -1,0 +1,22 @@
+name       : gpxsee
+version    : '13.26'
+release    : 46
+source     :
+    - https://github.com/tumic0/GPXSee/archive/refs/tags/13.26.tar.gz : 452743ab585f9f61fccf4e1344ab8eaddd689f3ad3463018626820884ea70027
+homepage   : https://www.gpxsee.org
+license    : GPL-3.0-or-later
+component  : desktop
+summary    : a Qt-based GPS log file viewer and analyzer that supports all common GPS log file formats.
+description: |
+    a Qt-based GPS log file viewer and analyzer that supports all common GPS log file formats.
+builddeps  :
+    - pkgconfig(Qt6Positioning)
+    - pkgconfig(Qt6SerialPort)
+    - pkgconfig(Qt6Svg)
+    - pkgconfig(Qt6UiTools)
+setup      : |
+    qmake6 CONFIG+=release gpxsee.pro PREFIX=%PREFIX%
+build      : |
+    %make
+install    : |
+    %make_install INSTALL_ROOT=$installdir
