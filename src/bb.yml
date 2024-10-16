@@ -1,8 +1,8 @@
 name       : bb
-version    : 1.12.193
-release    : 1
+version    : 1.12.194
+release    : 2
 source     :
-    - https://github.com/babashka/babashka/releases/download/v1.12.193/babashka-1.12.193-linux-amd64.tar.gz : a6c8f2fd36b721b1088c90269f0f43865f7e0ba721a0eda3965394b7ec92c160
+    - https://github.com/babashka/babashka/releases/download/v1.12.194/babashka-1.12.194-linux-amd64.tar.gz : 19cb609ef2e8a91f832cf9a41752e8647b061cb420b2bf2b608754f041e35674
 license    : EPL-1.0
 component  : programming
 summary    : Native, fast starting Clojure interpreter for scripting 
