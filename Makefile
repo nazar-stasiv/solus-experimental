@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -194,6 +194,14 @@ target/packages/f/fio/fio-3.38-19-1-x86_64.eopkg: target/Taskfile.yml
 
 fio: target/packages/f/fio/fio-3.38-19-1-x86_64.eopkg ## build fio, print path to new eopkg file
 > echo "${CURDIR}/target/packages/f/fio/fio-3.38-19-1-x86_64.eopkg"
+
+target/packages/t/tailscale/tailscale-1.76.0-27-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/t/tailscale
+> cp -f src/tailscale.yml target/packages/t/tailscale/package.yml
+> (cd target/packages/t/tailscale && go-task)
+
+tailscale: target/packages/t/tailscale/tailscale-1.76.0-27-1-x86_64.eopkg ## build tailscale, print path to new eopkg file
+> echo "${CURDIR}/target/packages/t/tailscale/tailscale-1.76.0-27-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

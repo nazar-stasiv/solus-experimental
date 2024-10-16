@@ -1,0 +1,26 @@
+name       : tailscale
+version    : 1.76.0
+release    : 27
+source     :
+    - https://github.com/tailscale/tailscale/archive/refs/tags/v1.76.0.tar.gz : eaec1fa9a882d877ce6e5fb6ef47b3387124321a8963c66c4c37319106b5c5c2
+homepage   : https://tailscale.com
+license    : BSD-3-Clause
+component  : network.clients
+summary    : Private WireGuard® networks made easy
+description: |
+    The easiest, most secure way to use WireGuard and 2FA.
+networking : yes
+builddeps  :
+    - git
+    - golang
+environment: |
+    export VERSION_LONG=%version%
+    export VERSION_SHORT=%version%
+build      : |
+    ./build_dist.sh tailscale.com/cmd/tailscale
+    ./build_dist.sh tailscale.com/cmd/tailscaled
+install    : |
+    install -Dm00755 $workdir/tailscale $installdir/usr/bin/tailscale
+    install -Dm00755 $workdir/tailscaled $installdir/usr/sbin/tailscaled
+    install -Dm00644 $workdir/cmd/tailscaled/tailscaled.service $installdir/usr/lib64/systemd/system/tailscaled.service
+    install -Dm00644 $workdir/cmd/tailscaled/tailscaled.defaults $installdir/etc/default/tailscaled

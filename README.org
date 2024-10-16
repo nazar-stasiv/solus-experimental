@@ -183,6 +183,12 @@ A console  version of StarDict, see  =man sdcv= for details.  Build with
 =make sdcv=, when =path-to-eopkg-file= gets printed to the screen, install
 with =eopkg install path-to-eopkg-file=.
 
+** tailscale
+
+Manage  virtual network,  see [[https://tailscale.com][homepage]]  for details.  Build with  =make
+tailscale=, when =path-to-eopkg-file= gets printed to the screen, install
+with =eopkg install path-to-eopkg-file=.
+
 ** tmx2lua
 
 Convert  =tiled= maps  into Lua  data, see  =tmx2lua --help=  for details.
