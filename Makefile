@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale iosevka
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -202,6 +202,14 @@ target/packages/t/tailscale/tailscale-1.76.0-27-1-x86_64.eopkg: target/Taskfile.
 
 tailscale: target/packages/t/tailscale/tailscale-1.76.0-27-1-x86_64.eopkg ## build tailscale, print path to new eopkg file
 > echo "${CURDIR}/target/packages/t/tailscale/tailscale-1.76.0-27-1-x86_64.eopkg"
+
+target/packages/f/font-iosevka-ttf/font-iosevka-ttf-31.9.1-77-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/f/font-iosevka-ttf
+> cp -f src/iosevka.yml target/packages/f/font-iosevka-ttf/package.yml
+> (cd target/packages/f/font-iosevka-ttf && go-task)
+
+iosevka: target/packages/f/font-iosevka-ttf/font-iosevka-ttf-31.9.1-77-1-x86_64.eopkg ## package iosevka, print path to new eopkg file
+> echo "${CURDIR}/target/packages/f/font-iosevka-ttf/font-iosevka-ttf-31.9.1-77-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target
