@@ -139,13 +139,13 @@ target/packages/g/gnuplot/gnuplot-6.0.1-25-1-x86_64.eopkg: target/Taskfile.yml
 gnuplot: target/packages/g/gnuplot/gnuplot-6.0.1-25-1-x86_64.eopkg ## build gnuplot, print path to new eopkg file
 > echo "${CURDIR}/target/packages/g/gnuplot/gnuplot-6.0.1-25-1-x86_64.eopkg"
 
-target/packages/v/visidata/visidata-3.0.2-12-1-x86_64.eopkg: target/Taskfile.yml
+target/packages/v/visidata/visidata-3.1.1-13-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/v/visidata
 > cp -f src/visidata.yml target/packages/v/visidata/package.yml
 > (cd target/packages/v/visidata && go-task)
 
-visidata: target/packages/v/visidata/visidata-3.0.2-12-1-x86_64.eopkg ## build vd, print path to new eopkg file
-> echo "${CURDIR}/target/packages/v/visidata/visidata-3.0.2-12-1-x86_64.eopkg"
+visidata: target/packages/v/visidata/visidata-3.1.1-13-1-x86_64.eopkg ## build vd, print path to new eopkg file
+> echo "${CURDIR}/target/packages/v/visidata/visidata-3.1.1-13-1-x86_64.eopkg"
 
 target/packages/s/sdcv/sdcv-0.5.5-8-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/s/sdcv
