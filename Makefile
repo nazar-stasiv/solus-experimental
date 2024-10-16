@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -186,6 +186,14 @@ target/packages/g/gpxsee/gpxsee-13.26-46-1-x86_64.eopkg: target/Taskfile.yml
 
 gpxsee: target/packages/g/gpxsee/gpxsee-13.26-46-1-x86_64.eopkg ## build gpxsee, print path to new eopkg file
 > echo "${CURDIR}/target/packages/g/gpxsee/gpxsee-13.26-46-1-x86_64.eopkg"
+
+target/packages/f/fio/fio-3.38-19-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/f/fio
+> cp -f src/fio.yml target/packages/f/fio/package.yml
+> (cd target/packages/f/fio && go-task)
+
+fio: target/packages/f/fio/fio-3.38-19-1-x86_64.eopkg ## build fio, print path to new eopkg file
+> echo "${CURDIR}/target/packages/f/fio/fio-3.38-19-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

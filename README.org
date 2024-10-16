@@ -45,6 +45,55 @@ An ASCII diagramming tool, for more details see [[https://ditaa.sourceforge.net]
 =make  ditaa=,  when  =path-to-eopkg-file=  gets printed  to  the  screen,
 install with =eopkg install path-to-eopkg-file=.
 
+** fio
+
+Simulate IO  load, for more details  see below.  Build with  =make fio=,
+when =path-to-eopkg-file= gets printed to the screen, install with =eopkg
+install path-to-eopkg-file=.
+
+Simulate disk  read with =fio read.ini  | grep READ |  awk '{print $2}'=
+where read.ini is
+
+#+begin_src conf
+[global]
+randrepeat=1
+ioengine=libaio
+bs=4k
+ba=4k
+size=1G
+direct=1
+gtod_reduce=1
+norandommap
+iodepth=64
+numjobs=1
+[randomreads]
+startdelay=0
+filename=sb-io-test
+readwrite=randread
+#+end_src
+
+Simulate disk write with =fio write.ini | grep WRITE | awk '{print $2}'=
+where write.ini is
+
+#+begin_src conf
+[global]
+randrepeat=1
+ioengine=libaio
+bs=4k
+ba=4k
+size=1G
+direct=1
+gtod_reduce=1
+norandommap
+iodepth=64
+numjobs=1
+[randomwrites]
+startdelay=0
+filename=sb-io-test
+readwrite=randwrite
+#+end_src
+
+
 ** firestarter
 
 A CPU  stress test utility,  for more details see  =FIRESTARTER --help=.
