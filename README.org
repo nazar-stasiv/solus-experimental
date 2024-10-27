@@ -171,6 +171,13 @@ details   see   =man   luajit=.     Build   with   =make   luajit=,   when
 =path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
 install path-to-eopkg-file=.
 
+** metabase
+
+Get business intelligence  and analytics to everyone  in your company,
+for  more  details  see  [[https://metabase.com][homepage]].  Build  with  =make  metabase=,  when
+=path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
+install path-to-eopkg-file=.
+
 ** pandoc3
 
 Convert markup text  into other formats, see =man  pandoc3= for details.
