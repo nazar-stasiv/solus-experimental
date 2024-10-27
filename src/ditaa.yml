@@ -1,6 +1,6 @@
 name       : ditaa
 version    : 0.11.0
-release    : 2
+release    : 3
 source     :
     - https://github.com/stathissideris/ditaa/releases/download/v0.11.0/ditaa-0.11.0-standalone.jar : 9418aa63ff6d89c5d2318396f59836e120e75bea7a5930c4d34aa10fe7a196a9
 license    : LGPL-3.0-or-later
@@ -8,7 +8,15 @@ component  : office.viewers
 summary    : convert ascii diagrams into bitmap graphics
 description: |
     ditaa is a small command-line utility that can convert diagrams drawn using ascii art ('drawings' that contain characters that resemble lines like | / - ), into proper bitmap graphics.
+extract  : no
 rundeps    :
-    - openjdk-17
+    - openjdk-21
+setup      : |
+    cat<<EOF > $workdir/ditaa
+    #!/bin/bash
+    JAVA_HOME="\${JAVA_HOME:-/usr/lib64/openjdk-21}"
+    \$JAVA_HOME/bin/java -jar /usr/share/java/ditaa-0.11.0-standalone.jar
+    EOF
 install    : |
+    install -Dm00755 $workdir/ditaa $installdir/usr/bin/ditaa
     install -Dm00644 $sources/ditaa-0.11.0-standalone.jar $installdir/usr/share/java/ditaa-0.11.0-standalone.jar

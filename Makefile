@@ -67,13 +67,13 @@ target/packages/z/zotero/zotero-7.0.8-21-1-x86_64.eopkg: target/Taskfile.yml
 zotero: target/packages/z/zotero/zotero-7.0.8-21-1-x86_64.eopkg ## build zotero, print path to new eopkg file
 > echo "${CURDIR}/target/packages/z/zotero/zotero-7.0.8-21-1-x86_64.eopkg"
 
-target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg: target/Taskfile.yml
+target/packages/d/ditaa/ditaa-0.11.0-3-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/d/ditaa
 > cp -f src/ditaa.yml target/packages/d/ditaa/package.yml
 > (cd target/packages/d/ditaa && go-task)
 
-ditaa: target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg ## package ditaa, print path to new eopkg file
-> echo "${CURDIR}/target/packages/d/ditaa/ditaa-0.11.0-2-1-x86_64.eopkg"
+ditaa: target/packages/d/ditaa/ditaa-0.11.0-3-1-x86_64.eopkg ## package ditaa, print path to new eopkg file
+> echo "${CURDIR}/target/packages/d/ditaa/ditaa-0.11.0-3-1-x86_64.eopkg"
 
 target/packages/f/firestarter/firestarter-2.0-1-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/f/firestarter
