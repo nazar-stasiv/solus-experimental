@@ -18,7 +18,7 @@ builddeps  :
     - pkgconfig(xapian-core)
     - emacs
 setup      : |
-    %meson_configure
+    %meson_configure -Dxapian-single-threaded=false
 build      : |
     %ninja_build
     emacs --batch --eval '(byte-recompile-directory "mu4e")'
