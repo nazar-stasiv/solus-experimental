@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale iosevka metabase
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale iosevka metabase mu
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -218,6 +218,14 @@ target/packages/m/metabase/metabase-0.51.1-1-1-x86_64.eopkg: target/Taskfile.yml
 
 metabase: target/packages/m/metabase/metabase-0.51.1-1-1-x86_64.eopkg ## package metabase, print path to new eopkg file
 > echo "${CURDIR}/target/packages/m/metabase/metabase-0.51.1-1-1-x86_64.eopkg"
+
+target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/m/mu
+> cp -f src/mu.yml target/packages/m/mu/package.yml
+> (cd target/packages/m/mu && go-task)
+
+mu: target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg ## build mu and mu4e, print path to new eopkg file
+> echo "${CURDIR}/target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target
