@@ -1,6 +1,6 @@
 name       : metabase
 version    : 0.51.1
-release    : 1
+release    : 2
 source     :
     - https://downloads.metabase.com/v0.51.1/metabase.jar : ce70b5f56eec515aaf028bb32f8485e18b58c86ea924ec04928a0dd4e8aebffb
 license    : AGPL-3.0-or-later
@@ -15,7 +15,7 @@ setup      : |
     cat<<EOF > $workdir/metabase
     #!/bin/bash
     JAVA_HOME="\${JAVA_HOME:-/usr/lib64/openjdk-21}"
-    \$JAVA_HOME/bin/java -jar /usr/share/java/metabase.jar
+    \$JAVA_HOME/bin/java -jar /usr/share/java/metabase.jar  "\$@"
     EOF
 install    : |
     install -Dm00755 $workdir/metabase $installdir/usr/bin/metabase
