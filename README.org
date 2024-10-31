@@ -139,6 +139,12 @@ see  =man   janet=  and  =man  jpm=   .   Build  with  =make   janet=,  when
 =path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
 install path-to-eopkg-file=.
 
+** kitty
+
+Cross-platform, fast, feature-rich, GPU  based terminal, see =man kitty=
+for  details.  Build  with  =make kitty=,  when =path-to-eopkg-file=  gets
+printed to the screen, install with =eopkg install path-to-eopkg-file=.
+
 ** kodi
 
 Packaging  kodi takes  30 to  60 minutes  and 10G  of free  space.  In

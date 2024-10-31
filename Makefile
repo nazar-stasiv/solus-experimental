@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale iosevka metabase mu
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale iosevka metabase mu kitty
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -226,6 +226,14 @@ target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg: target/Taskfile.yml
 
 mu: target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg ## build mu and mu4e, print path to new eopkg file
 > echo "${CURDIR}/target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg"
+
+target/packages/k/kitty/kitty-0.37.0-75-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/k/kitty
+> cp -f src/kitty.yml target/packages/k/kitty/package.yml
+> (cd target/packages/k/kitty && go-task)
+
+kitty: target/packages/k/kitty/kitty-0.37.0-75-1-x86_64.eopkg ## build kitty, print path to new eopkg file
+> echo "${CURDIR}/target/packages/k/kitty/kitty-0.37.0-75-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target
