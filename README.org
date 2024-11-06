@@ -215,6 +215,14 @@ Manage  virtual network,  see [[https://tailscale.com][homepage]]  for details. 
 tailscale=, when =path-to-eopkg-file= gets printed to the screen, install
 with =eopkg install path-to-eopkg-file=.
 
+** tiled
+
+Also known as mapeditor - a  tile map editor for all tile-based games,
+such as RPGs,  platformers or Breakout clones. Build  with =make tiled=,
+when =path-to-eopkg-file= gets printed to the screen, install with =eopkg
+install path-to-eopkg-file=.
+
+
 ** tmx2lua
 
 Convert  =tiled= maps  into Lua  data, see  =tmx2lua --help=  for details.
