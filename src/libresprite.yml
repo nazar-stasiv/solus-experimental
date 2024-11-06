@@ -1,0 +1,31 @@
+name       : libresprite
+version    : '1.1'
+release    : 3
+source     :
+    - https://github.com/LibreSprite/LibreSprite/releases/download/v1.1/SOURCE.CODE.+.submodules.tar.gz : b9acc760099f2c4232e164862a9657fe87a56416e79ddd3cdf6ecfd75547f586
+homepage   : https://libresprite.github.io
+license    : GPL-2.0-or-later
+component  : multimedia.graphics
+summary    : Animated sprite editor & pixel art tool
+description: |
+    Libresprite is a program to create animated sprite
+builddeps  :
+    - pkgconfig(SDL2_image)
+    - pkgconfig(freetype2)
+    - pkgconfig(gtest)
+    - pkgconfig(libarchive)
+    - pkgconfig(libcurl)
+    - pkgconfig(libjpeg)
+    - pkgconfig(libpng)
+    - pkgconfig(pixman-1)
+    - pkgconfig(sdl2)
+    - pkgconfig(tinyxml2)
+    - pkgconfig(x11)
+    - pkgconfig(zlib)
+    - giflib-devel
+setup      : |
+    %cmake_ninja
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install

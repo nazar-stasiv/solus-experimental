@@ -170,6 +170,12 @@ Style  and  Grammar  Checker  for  25+  Languages.   Build  with  =make
 languagetool=,  when =path-to-eopkg-file=  gets  printed  to the  screen,
 install with =eopkg install path-to-eopkg-file=.
 
+** libresprite
+
+Animated sprite editor & pixel art  tool based on Aceprite. Build with
+=make libresprite=, when =path-to-eopkg-file=  gets printed to the screen,
+install with =eopkg install path-to-eopkg-file=.
+
 ** luajit
 
 Just-in-time compiler  and drop-in replacement  for Lua 5.1,  for more
