@@ -1,0 +1,17 @@
+name       : gbstudio
+version    : 4.1.3
+release    : 1
+source     :
+    - https://github.com/chrismaltby/gb-studio/releases/download/v4.1.3/gb-studio-linux-debian.deb : a019f1026aab6941d1a4ced86e3811ed4606ba5b825ac47e2ed8ad8ef1400e99
+homepage   : https://www.gbstudio.dev
+license    : MIT
+component  : multimedia.graphics
+summary    : A quick and easy to use drag and drop retro game creator
+description: |
+    GB Studio is a quick and easy to use retro adventure game creator for Game Boy available for Mac, Linux and Windows.
+extract  : no
+install    : |
+    ar -x --output $workdir $sources/gb-studio-linux-debian.deb
+    tar xf $workdir/data.tar.zst
+    install -dDm00755 $installdir/usr
+    mv $workdir/usr/* $installdir/usr

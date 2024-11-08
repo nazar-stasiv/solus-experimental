@@ -100,6 +100,13 @@ A CPU  stress test utility,  for more details see  =FIRESTARTER --help=.
 Build with  =make firestarter=, when =path-to-eopkg-file=  gets printed to
 the screen, install with =eopkg install path-to-eopkg-file=.
 
+** gbstudio
+
+A  quick and  easy  to  use retro  adventure  game  creator, for  more
+information   see  [[https://www.gbstudio.dev][home   page]].   Build   with  =make   gbstudio=,  when
+=path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
+install path-to-eopkg-file=.
+
 ** gmaptool
 
 A program  for splitting and merging  maps in Garmin format,  for more

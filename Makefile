@@ -251,6 +251,14 @@ target/packages/l/libresprite/libresprite-1.1-3-1-x86_64.eopkg: target/Taskfile.
 libresprite: target/packages/l/libresprite/libresprite-1.1-3-1-x86_64.eopkg ## build libresprite, print path to new eopkg file
 > echo "${CURDIR}/target/packages/l/libresprite/libresprite-1.1-3-1-x86_64.eopkg"
 
+target/packages/g/gbstudio/gbstudio-4.1.3-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/g/gbstudio
+> cp -f src/gbstudio.yml target/packages/g/gbstudio/package.yml
+> (cd target/packages/g/gbstudio && go-task)
+
+gbstudio: target/packages/g/gbstudio/gbstudio-4.1.3-1-1-x86_64.eopkg ## package deb to eopkg, print path to new eopkg file
+> echo "${CURDIR}/target/packages/g/gbstudio/gbstudio-4.1.3-1-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target
 
