@@ -1,0 +1,22 @@
+name       : uber-apk-signer
+version    : 1.3.0
+release    : 1
+source     :
+    - https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3.0/uber-apk-signer-1.3.0.jar : e1299fd6fcf4da527dd53735b56127e8ea922a321128123b9c32d619bba1d835
+license    : Apache-2.0
+component  : programming.tools
+summary    : A cli tool that helps signing and zip aligning single or multiple Android application packages
+description: |
+    A tool that helps to sign, zip aligning and verifying multiple Android application packages (APKs) with either debug or provided release certificates (or multiple). It supports v1, v2, v3 Android signing scheme and v4 Android signing scheme.
+extract  : no
+rundeps    :
+    - openjdk-21
+setup      : |
+    cat<<EOF > $workdir/uber-apk-signer
+    #!/bin/bash
+    JAVA_HOME="\${JAVA_HOME:-/usr/lib64/openjdk-21}"
+    \$JAVA_HOME/bin/java -jar /usr/share/java/uber-apk-signer-1.3.0.jar "\$@"
+    EOF
+install    : |
+    install -Dm00755 $workdir/uber-apk-signer $installdir/usr/bin/uber-apk-signer
+    install -Dm00644 $sources/uber-apk-signer-1.3.0.jar $installdir/usr/share/java/uber-apk-signer-1.3.0.jar

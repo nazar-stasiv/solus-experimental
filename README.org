@@ -256,6 +256,13 @@ stdin, see  =man ttyplot=  for details.  Build  with =make  ttyplot=, when
 =path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
 install path-to-eopkg-file=.
 
+** uber-apk-signer
+
+A cli  tool that  helps signing  and zip  aligning single  or multiple
+Android application  packages, see  [[https://favr.dev/opensource/uber-apk-signer/][homepage]] for details.   Build with
+=make  uber-apk-signer=, when  =path-to-eopkg-file=  gets  printed to  the
+screen, install with =eopkg install path-to-eopkg-file=.
+
 ** visidata
 
 A terminal  spreadsheet multitool for discovering  and arranging data,

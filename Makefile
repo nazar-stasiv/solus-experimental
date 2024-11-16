@@ -267,6 +267,14 @@ target/packages/a/apktool/apktool-2.10.0-1-1-x86_64.eopkg: target/Taskfile.yml
 apktool: target/packages/a/apktool/apktool-2.10.0-1-1-x86_64.eopkg ## package apktool, print path to new eopkg file
 > echo "${CURDIR}/target/packages/a/apktool/apktool-2.10.0-1-1-x86_64.eopkg"
 
+target/packages/u/uber-apk-signer/uber-apk-signer-1.3.0-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/u/uber-apk-signer
+> cp -f src/uber-apk-signer.yml target/packages/u/uber-apk-signer/package.yml
+> (cd target/packages/u/uber-apk-signer && go-task)
+
+uber-apk-signer: target/packages/u/uber-apk-signer/uber-apk-signer-1.3.0-1-1-x86_64.eopkg ## package uber-apk-signer, print path to new eopkg file
+> echo "${CURDIR}/target/packages/u/uber-apk-signer/uber-apk-signer-1.3.0-1-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target
 
