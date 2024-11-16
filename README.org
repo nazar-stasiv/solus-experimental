@@ -26,6 +26,13 @@ Convert  Microsoft Word  files to  plain  text, see  =man antiword=  for
 details.   Build  with  =make antiword=,  when  =path-to-eopkg-file=  gets
 printed to the screen, install with =eopkg install path-to-eopkg-file=.
 
+** apktool
+
+Assemble and disassemble Android apk  files, see [[https://apktool.org/][homepage]] for details.
+Build with =make  apktool=, when =path-to-eopkg-file= gets  printed to the
+screen, install with =eopkg install path-to-eopkg-file=.
+
+
 ** bandwhich
 
 A  utility  for displaying  current  network  utilization by  process,

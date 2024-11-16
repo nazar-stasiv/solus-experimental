@@ -1,0 +1,22 @@
+name       : apktool
+version    : 2.10.0
+release    : 1
+source     :
+    - https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar : c0350abbab5314248dfe2ee0c907def4edd14f6faef1f5d372d3d4abd28f0431
+license    : Apache-2.0
+component  : programming.tools
+summary    : A tool for reverse engineering Android apk files
+description: |
+    A tool for reverse engineering third-party, closed, binary, Android apps. It can decode resources to nearly original form and rebuild them after making some modifications; it makes it possible to debug smali code step-by-step. It also makes working with apps easier thanks to project-like file structure and automation of some repetitive tasks such as building apk, etc.
+extract  : no
+rundeps    :
+    - openjdk-21
+setup      : |
+    cat<<EOF > $workdir/apktool
+    #!/bin/bash
+    JAVA_HOME="\${JAVA_HOME:-/usr/lib64/openjdk-21}"
+    \$JAVA_HOME/bin/java -jar /usr/share/java/apktool_2.10.0.jar  "\$@"
+    EOF
+install    : |
+    install -Dm00755 $workdir/apktool $installdir/usr/bin/apktool
+    install -Dm00644 $sources/apktool_2.10.0.jar $installdir/usr/share/java/apktool_2.10.0.jar

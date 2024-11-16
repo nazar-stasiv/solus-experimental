@@ -259,6 +259,14 @@ target/packages/g/gbstudio/gbstudio-4.1.3-1-1-x86_64.eopkg: target/Taskfile.yml
 gbstudio: target/packages/g/gbstudio/gbstudio-4.1.3-1-1-x86_64.eopkg ## package deb to eopkg, print path to new eopkg file
 > echo "${CURDIR}/target/packages/g/gbstudio/gbstudio-4.1.3-1-1-x86_64.eopkg"
 
+target/packages/a/apktool/apktool-2.10.0-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/a/apktool
+> cp -f src/apktool.yml target/packages/a/apktool/package.yml
+> (cd target/packages/a/apktool && go-task)
+
+apktool: target/packages/a/apktool/apktool-2.10.0-1-1-x86_64.eopkg ## package apktool, print path to new eopkg file
+> echo "${CURDIR}/target/packages/a/apktool/apktool-2.10.0-1-1-x86_64.eopkg"
+
 clean: ## clean up
 > rm -rf target
 
