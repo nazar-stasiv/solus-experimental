@@ -1,0 +1,22 @@
+name       : wrk
+version    : 4.2.0
+release    : 1
+source     :
+    - https://github.com/wg/wrk/archive/refs/tags/4.2.0.tar.gz : e255f696bff6e329f5d19091da6b06164b8d59d62cb9e673625bdcd27fe7bdad
+license    : Apache-2.0
+component  : programming.tools
+summary    : Modern HTTP benchmarking tool
+description: |
+    wrk is a modern HTTP benchmarking tool capable of generating significant load when run on a single multi-core CPU
+builddeps  :
+    - pkgconfig(libssl-1.1)
+    - pkgconfig(luajit)
+environment: |
+    export CFLAGS="$CFLAGS -std=c99 -I/usr/include/luajit-2.1 -I/usr/include/openssl-1.1"
+build      : |
+    %make WITH_LUAJIT=/usr WITH_OPENSSL=/usr
+install    : |
+    install -Dm00755 $workdir/wrk $installdir/usr/bin/wrk
+    install -dDm00755 $installdir/usr/share/wrk
+    mv $workdir/scripts $installdir/usr/share/wrk
+

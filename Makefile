@@ -14,7 +14,7 @@ help: ## Display this help section
 > @awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / {printf "\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
-.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale iosevka metabase mu kitty tiled libresprite
+.PHONY: clean kodi pandoc3 pdf2djvu janet antiword zotero ditaa firestarter gmaptool tmx2lua hunspell-uk luajit ziglang languagetool gnuplot visidata sdcv ttyplot bandwhich bb gpxsee fio tailscale iosevka metabase mu kitty tiled libresprite gbstudio apktool uber-apk-signer wrk
 
 target/Taskfile.yml:
 > git clone --depth=1 https://github.com/getsolus/packages.git target
@@ -274,6 +274,14 @@ target/packages/u/uber-apk-signer/uber-apk-signer-1.3.0-1-1-x86_64.eopkg: target
 
 uber-apk-signer: target/packages/u/uber-apk-signer/uber-apk-signer-1.3.0-1-1-x86_64.eopkg ## package uber-apk-signer, print path to new eopkg file
 > echo "${CURDIR}/target/packages/u/uber-apk-signer/uber-apk-signer-1.3.0-1-1-x86_64.eopkg"
+
+target/packages/w/wrk/wrk-4.2.0-1-1-x86_64.eopkg: target/Taskfile.yml
+> mkdir -p target/packages/w/wrk
+> cp -f src/wrk.yml target/packages/w/wrk/package.yml
+> (cd target/packages/w/wrk && go-task)
+
+wrk: target/packages/w/wrk/wrk-4.2.0-1-1-x86_64.eopkg ## build wrk, print path to new eopkg file
+> echo "${CURDIR}/target/packages/w/wrk/wrk-4.2.0-1-1-x86_64.eopkg"
 
 clean: ## clean up
 > rm -rf target

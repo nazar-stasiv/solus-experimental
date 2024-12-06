@@ -270,6 +270,12 @@ see   =man   vd=  for   details.    Build   with  =make   visidata=   when
 =path-to-eopkg-file=  gets printed  to  the screen,  install with  =eopkg
 install path-to-eopkg-file=.
 
+** wrk
+A modern HTTP benchmarking tool capable of generating significant load
+when  run on  a single  multi-core CPU,  see =wrk  --help= for  details.
+Build  with  =make wrk=  when  =path-to-eopkg-file=  gets printed  to  the
+screen, install with =eopkg install path-to-eopkg-file=.
+
 ** ziglang
 
 General-purpose  programming language  and  toolchain for  maintaining
