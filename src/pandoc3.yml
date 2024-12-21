@@ -1,8 +1,8 @@
 name       : pandoc3
-version    : '3.5'
-release    : 3
+version    : '3.6'
+release    : 4
 source     :
-    - https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-linux-amd64.tar.gz : a46b448ad9e7e5bd898a0606a2a67acbf4bc7714b24dc68931e9a47d7b807015
+    - https://github.com/jgm/pandoc/releases/download/3.6/pandoc-3.6-linux-amd64.tar.gz : 8e3702b195f75412e425df46f8f3f08241b66a2b33abbd9e04eda501bfde860c
 license    : GPL-2.0-or-later
 component  : office
 summary    : Universal markup converter

@@ -27,13 +27,13 @@ target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg: target/Taskfile.yml
 kodi: target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg ## build kodi, print path to new eopkg file
 > echo "${CURDIR}/target/packages/k/kodi/kodi-21.1-104-1-x86_64.eopkg"
 
-target/packages/p/pandoc3/pandoc3-3.5-3-1-x86_64.eopkg: target/Taskfile.yml
+target/packages/p/pandoc3/pandoc3-3.6-4-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/p/pandoc3
 > cp -f src/pandoc3.yml target/packages/p/pandoc3/package.yml
 > (cd target/packages/p/pandoc3 && go-task)
 
-pandoc3: target/packages/p/pandoc3/pandoc3-3.5-3-1-x86_64.eopkg ## build pandoc3, print path to new eopkg file
-> echo "${CURDIR}/target/packages/p/pandoc3/pandoc3-3.5-3-1-x86_64.eopkg"
+pandoc3: target/packages/p/pandoc3/pandoc3-3.6-4-1-x86_64.eopkg ## build pandoc3, print path to new eopkg file
+> echo "${CURDIR}/target/packages/p/pandoc3/pandoc3-3.6-4-1-x86_64.eopkg"
 
 target/packages/p/pdf2djvu/pdf2djvu-0.9.19-9-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/p/pdf2djvu
