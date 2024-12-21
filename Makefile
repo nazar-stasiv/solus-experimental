@@ -219,13 +219,13 @@ target/packages/m/metabase/metabase-0.51.1-2-1-x86_64.eopkg: target/Taskfile.yml
 metabase: target/packages/m/metabase/metabase-0.51.1-2-1-x86_64.eopkg ## package metabase, print path to new eopkg file
 > echo "${CURDIR}/target/packages/m/metabase/metabase-0.51.1-2-1-x86_64.eopkg"
 
-target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg: target/Taskfile.yml
+target/packages/m/mu/mu-1.12.8-29-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/m/mu
 > cp -f src/mu.yml target/packages/m/mu/package.yml
 > (cd target/packages/m/mu && go-task)
 
-mu: target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg ## build mu and mu4e, print path to new eopkg file
-> echo "${CURDIR}/target/packages/m/mu/mu-1.12.7-28-1-x86_64.eopkg"
+mu: target/packages/m/mu/mu-1.12.8-29-1-x86_64.eopkg ## build mu and mu4e, print path to new eopkg file
+> echo "${CURDIR}/target/packages/m/mu/mu-1.12.8-29-1-x86_64.eopkg"
 
 target/packages/k/kitty/kitty-0.37.0-75-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/k/kitty
