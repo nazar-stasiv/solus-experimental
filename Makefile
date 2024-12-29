@@ -171,13 +171,13 @@ target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg: target/Taskfile.y
 bandwhich: target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg ## build bandwhich, print path to new eopkg file
 > echo "${CURDIR}/target/packages/b/bandwhich/bandwhich-0.23.1-7-1-x86_64.eopkg"
 
-target/packages/b/bb/bb-1.12.195-3-1-x86_64.eopkg: target/Taskfile.yml
+target/packages/b/bb/bb-1.12.196-4-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/b/bb
 > cp -f src/bb.yml target/packages/b/bb/package.yml
 > (cd target/packages/b/bb && go-task)
 
-bb: target/packages/b/bb/bb-1.12.195-3-1-x86_64.eopkg ## build bb, print path to new eopkg file
-> echo "${CURDIR}/target/packages/b/bb/bb-1.12.195-3-1-x86_64.eopkg"
+bb: target/packages/b/bb/bb-1.12.196-4-1-x86_64.eopkg ## build bb, print path to new eopkg file
+> echo "${CURDIR}/target/packages/b/bb/bb-1.12.196-4-1-x86_64.eopkg"
 
 target/packages/g/gpxsee/gpxsee-13.26-46-1-x86_64.eopkg: target/Taskfile.yml
 > mkdir -p target/packages/g/gpxsee
