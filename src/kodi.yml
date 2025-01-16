@@ -1,8 +1,8 @@
 name       : kodi
-version    : '21.1'
-release    : 104
+version    : '21.2'
+release    : 105
 source     :
-    - https://github.com/xbmc/xbmc/archive/refs/tags/21.1-Omega.tar.gz : ad6e40b0912c8318635f0501dc1f7f27ce3a29e671f2ddb608cad34babae80ef
+    - https://github.com/xbmc/xbmc/archive/refs/tags/21.2-Omega.tar.gz : da3a5df663684664b9383b65f1c06568222629d935084a59e4e641fcdcb6c383
 license    : GPL-2.0-or-later
 component  : desktop.multimedia
 homepage   : https://kodi.tv
